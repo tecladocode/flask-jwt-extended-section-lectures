@@ -39,7 +39,7 @@ def add_claims_to_jwt(identity):  # Remember identity is what we define when cre
 @jwt.expired_token_loader
 def expired_token_callback():
     return jsonify({
-        'message': 'The token has expired.',
+        'description': 'The token has expired.',
         'error': 'token_expired'
     }), 401
 
@@ -47,7 +47,7 @@ def expired_token_callback():
 @jwt.invalid_token_loader
 def invalid_token_callback(error):  # we have to keep the argument here, since it's passed in by the caller internally
     return jsonify({
-        'message': 'Signature verification failed.',
+        'description': 'Signature verification failed.',
         'error': 'invalid_token'
     }), 401
 
@@ -55,7 +55,7 @@ def invalid_token_callback(error):  # we have to keep the argument here, since i
 @jwt.unauthorized_loader
 def missing_token_callback(error):
     return jsonify({
-        "description": "Request does not contain an access token.",
+        'description': 'Request does not contain an access token.',
         'error': 'authorization_required'
     }), 401
 
@@ -63,7 +63,7 @@ def missing_token_callback(error):
 @jwt.needs_fresh_token_loader
 def token_not_fresh_callback():
     return jsonify({
-        "description": "The token is not fresh.",
+        'description': 'The token is not fresh.',
         'error': 'fresh_token_required'
     }), 401
 
@@ -71,7 +71,7 @@ def token_not_fresh_callback():
 @jwt.revoked_token_loader
 def revoked_token_callback():
     return jsonify({
-        "description": "The token has been revoked.",
+        'description': 'The token has been revoked.',
         'error': 'token_revoked'
     }), 401
 
