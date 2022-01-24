@@ -7,5 +7,5 @@
     * Mention `app.config['JWT_SECRET_KEY']` in `app.py` as well
 * Removed `security.py` file
 * Modified `item.py` since it was using `flask_jwt`
-    * Changed `@jwt_required()` to `@jwt_required`
+  * Changed location of import
 * Added `requirements.txt`
